@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ScheduleModule } from '@nestjs/schedule';
-import { getDatabaseConfig } from './config/database.config';
+import { databaseConfig } from './config/database.config';
 
 // Models
 import { User } from './modules/users/models/user.model';
@@ -26,6 +26,7 @@ import { AutomationsModule } from './modules/automate/automations.module';
 import { PatientsModule } from './modules/patients/patients.module';
 import { UsersModule } from './modules/users/users.module';
 import { RbacModule } from './modules/roles/rbac.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -34,13 +35,8 @@ import { RbacModule } from './modules/roles/rbac.module';
       envFilePath: '.env',
     }),
 
-    SequelizeModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: getDatabaseConfig,
-    }),
+    SequelizeModule.forRoot(databaseConfig),
 
-    // Register all models so autoLoadModels + associations work
     SequelizeModule.forFeature([
       User,
       Role,
@@ -49,6 +45,7 @@ import { RbacModule } from './modules/roles/rbac.module';
       RolePermission,
       Patient,
       PatientVisit,
+
       WhatsappTemplate,
       Automation,
       AutomationRun,
@@ -59,7 +56,7 @@ import { RbacModule } from './modules/roles/rbac.module';
     ]),
 
     ScheduleModule.forRoot(),
-
+    AuthModule,
     WhatsappModule,
     AutomationsModule,
     PatientsModule,

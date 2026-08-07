@@ -48,7 +48,7 @@ export class AutomationRun extends Model<
   declare automation_id: string;
 
   @ForeignKey(
-    () => require('@/modules/patients/models/patient-visit.model').PatientVisit,
+    () => require('../../patients/models/patient-visit.model').PatientVisit,
   )
   @Column({
     type: DataType.CHAR(36),
@@ -84,7 +84,7 @@ export class AutomationRun extends Model<
   declare automation?: Automation;
 
   @BelongsTo(
-    () => require('@/modules/patients/models/patient-visit.model').PatientVisit,
+    () => require('../../patients/models/patient-visit.model').PatientVisit,
   )
   declare patientVisit?: PatientVisit;
 

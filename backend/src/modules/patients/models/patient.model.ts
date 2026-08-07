@@ -60,15 +60,13 @@ export class Patient extends Model<Patient> {
 
   @HasMany(
     () =>
-      require('@/modules/automate/models/whatsapp-message.model')
-        .WhatsappMessage,
+      require('../../automate/models/whatsapp-message.model').WhatsappMessage,
   )
   declare messages: WhatsappMessage[];
 
   @HasMany(
     () =>
-      require('@/modules/automate/models/feedback-request.model')
-        .FeedbackRequest,
+      require('../../automate/models/feedback-request.model').FeedbackRequest,
   )
   declare feedbacks: FeedbackRequest[];
 }

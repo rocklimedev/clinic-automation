@@ -17,18 +17,18 @@ import type { Role } from '@/modules/roles/models/role.model';
 })
 export class UserRole extends Model<UserRole> {
   @PrimaryKey
-  @ForeignKey(() => require('../../users/models/user.model').User)
+  @ForeignKey(() => require('./user.model').User)
   @Column(DataType.CHAR(36))
   declare user_id: string;
 
   @PrimaryKey
-  @ForeignKey(() => require('@/modules/roles/models/role.model').Role)
+  @ForeignKey(() => require('../../roles/models/role.model').Role)
   @Column(DataType.CHAR(36))
   declare role_id: string;
 
   @BelongsTo(() => require('../../users/models/user.model').User)
   declare user: User;
 
-  @BelongsTo(() => require('@/modules/roles/models/role.model').Role)
+  @BelongsTo(() => require('../../roles/models/role.model').Role)
   declare role: Role;
 }

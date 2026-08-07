@@ -66,22 +66,19 @@ export class PatientVisit extends Model<PatientVisit> {
   declare patient: Patient;
 
   @HasMany(
-    () =>
-      require('@/modules/automate/models/automation-run.model').AutomationRun,
+    () => require('../../automate/models/automation-run.model').AutomationRun,
   )
   declare automationRuns: AutomationRun[];
 
   @HasMany(
     () =>
-      require('@/modules/automate/models/whatsapp-message.model')
-        .WhatsappMessage,
+      require('../../automate/models/whatsapp-message.model').WhatsappMessage,
   )
   declare messages: WhatsappMessage[];
 
   @HasMany(
     () =>
-      require('@/modules/automate/models/feedback-request.model')
-        .FeedbackRequest,
+      require('../../automate/models/feedback-request.model').FeedbackRequest,
   )
   declare feedbacks: FeedbackRequest[];
 }

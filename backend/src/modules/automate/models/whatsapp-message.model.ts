@@ -40,7 +40,7 @@ export class WhatsappMessage extends Model<
   declare patient_id: string;
 
   @ForeignKey(
-    () => require('@/modules/patients/models/patient-visit.model').PatientVisit,
+    () => require('../../patients/models/patient-visit.model').PatientVisit,
   )
   @Column({
     type: DataType.CHAR(36),

@@ -7,10 +7,12 @@ import {
   Users,
   Eye,
 } from "lucide-react";
+
 import RoleModal from "./RoleModal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+
 import {
   Table,
   TableHeader,
@@ -29,43 +31,35 @@ import {
 } from "@/components/ui/card";
 
 import { DropdownMenu, DropdownItem } from "../../components/ui/DropdownMenu";
-const roles = [
-  {
-    id: 1,
-    name: "Administrator",
-    users: 2,
-    description: "Complete system access",
-    color: "bg-purple-100 text-purple-700",
-    permissions: 24,
-  },
-  {
-    id: 2,
-    name: "Doctor",
-    users: 7,
-    description: "Manage patients and feedback",
-    color: "bg-blue-100 text-blue-700",
-    permissions: 14,
-  },
-  {
-    id: 3,
-    name: "Coordinator",
-    users: 5,
-    description: "Manage patient workflow",
-    color: "bg-amber-100 text-amber-700",
-    permissions: 10,
-  },
-  {
-    id: 4,
-    name: "Receptionist",
-    users: 4,
-    description: "Patient registration",
-    color: "bg-zinc-100 text-zinc-700",
-    permissions: 6,
-  },
-];
+
+import { useGetRolesQuery } from "../../services/rbac.api";
+
+const roleColors = {
+  ADMIN: "bg-purple-100 text-purple-700",
+  SUPER_ADMIN: "bg-red-100 text-red-700",
+  DOCTOR: "bg-blue-100 text-blue-700",
+  RECEPTIONIST: "bg-amber-100 text-amber-700",
+  STAFF: "bg-zinc-100 text-zinc-700",
+  PATIENT: "bg-green-100 text-green-700",
+};
 
 export default function RolesTable() {
   const [openRoleModal, setOpenRoleModal] = useState(false);
+
+  const { data: rolesResponse, isLoading, isError } = useGetRolesQuery();
+
+  const roles = rolesResponse || [];
+
+  if (isLoading) {
+    return <div className="p-6 text-center">Loading roles...</div>;
+  }
+
+  if (isError) {
+    return (
+      <div className="p-6 text-center text-red-500">Failed to load roles</div>
+    );
+  }
+
   return (
     <div className="space-y-6">
       {/* Summary */}
@@ -91,7 +85,7 @@ export default function RolesTable() {
 
             <p className="mt-4 text-sm text-zinc-500">Assigned Users</p>
 
-            <h2 className="mt-1 text-3xl font-bold">18</h2>
+            <h2 className="mt-1 text-3xl font-bold">0</h2>
           </CardContent>
         </Card>
 
@@ -103,7 +97,7 @@ export default function RolesTable() {
 
             <p className="mt-4 text-sm text-zinc-500">Total Permissions</p>
 
-            <h2 className="mt-1 text-3xl font-bold">24</h2>
+            <h2 className="mt-1 text-3xl font-bold">0</h2>
           </CardContent>
         </Card>
       </div>
@@ -149,20 +143,28 @@ export default function RolesTable() {
               {roles.map((role) => (
                 <TableRow key={role.id}>
                   <TableCell>
-                    <Badge className={role.color}>{role.name}</Badge>
+                    <Badge
+                      className={
+                        roleColors[role.name] || "bg-gray-100 text-gray-700"
+                      }
+                    >
+                      {role.name}
+                    </Badge>
                   </TableCell>
 
                   <TableCell className="text-zinc-600">
-                    {role.description}
+                    {role.description || "-"}
                   </TableCell>
 
                   <TableCell>
-                    <Badge variant="secondary">{role.users} Users</Badge>
+                    <Badge variant="secondary">
+                      {role.users?.length || 0} Users
+                    </Badge>
                   </TableCell>
 
                   <TableCell>
                     <Badge variant="outline">
-                      {role.permissions} Permissions
+                      {role.permissions?.length || 0} Permissions
                     </Badge>
                   </TableCell>
 
@@ -176,14 +178,14 @@ export default function RolesTable() {
                     >
                       <DropdownItem
                         icon={Eye}
-                        onClick={() => console.log("View Role")}
+                        onClick={() => console.log(role)}
                       >
                         View Role
                       </DropdownItem>
 
                       <DropdownItem
                         icon={Pencil}
-                        onClick={() => console.log("Edit Role")}
+                        onClick={() => console.log("Edit", role.id)}
                       >
                         Edit Role
                       </DropdownItem>
@@ -193,7 +195,7 @@ export default function RolesTable() {
                       <DropdownItem
                         icon={Trash2}
                         className="text-red-600 hover:bg-red-50"
-                        onClick={() => console.log("Delete Role")}
+                        onClick={() => console.log("Delete", role.id)}
                       >
                         Delete Role
                       </DropdownItem>
@@ -205,6 +207,7 @@ export default function RolesTable() {
           </Table>
         </CardContent>
       </Card>
+
       <RoleModal open={openRoleModal} onClose={() => setOpenRoleModal(false)} />
     </div>
   );
