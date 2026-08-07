@@ -39,7 +39,7 @@ jobs:
           script: |
             set -e
 
-            cd /opt/apps/clinic-automation-backend
+            cd /opt/apps/clinic-automate
 
             echo "${{ secrets.CLINIC_AUTOMATION_BACKEND_GHCR_TOKEN }}" | docker login ghcr.io \
               -u rocklimedev --password-stdin
