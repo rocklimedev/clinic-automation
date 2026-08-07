@@ -1,0 +1,172 @@
+# ==========================
+# Dependencies
+# ==========================
+node_modules/
+**/node_modules/
+
+# Package Managers
+.pnpm-store/
+.npm/
+.yarn/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# ==========================
+# Environment Files
+# ==========================
+.env
+.env.*
+!.env.example
+!.env.template
+
+# ==========================
+# Logs
+# ==========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==========================
+# Build Output
+# ==========================
+dist/
+build/
+out/
+.next/
+.nuxt/
+coverage/
+storybook-static/
+
+# ==========================
+# TypeScript
+# ==========================
+*.tsbuildinfo
+
+# ==========================
+# Cache
+# ==========================
+.cache/
+.parcel-cache/
+.eslintcache
+.turbo/
+.vite/
+.temp/
+tmp/
+temp/
+
+# ==========================
+# Runtime
+# ==========================
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ==========================
+# Databases
+# ==========================
+*.sqlite
+*.sqlite3
+*.db
+
+# ==========================
+# Uploads / Generated Files
+# ==========================
+uploads/
+public/uploads/
+storage/
+media/
+generated/
+
+# ==========================
+# Docker
+# ==========================
+docker-compose.override.yml
+*.tar
+
+# ==========================
+# IDEs
+# ==========================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ==========================
+# OS Files
+# ==========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==========================
+# Testing
+# ==========================
+.nyc_output/
+jest-html-reporters-*.html
+
+# ==========================
+# Misc
+# ==========================
+*.pem
+*.key
+*.crt
+*.cert
+*.bak
+*.swp
+*.swo
+*.orig
+
+# ==========================
+# Framework Specific
+# ==========================
+
+# Next.js
+.next/
+out/
+
+# Vite
+dist/
+
+# NestJS
+dist/
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+
+# Sequelize
+sequelize-meta.json
+
+# ==========================
+# Monorepo Support
+# ==========================
+frontend/node_modules/
+backend/node_modules/
+apps/*/node_modules/
+packages/*/node_modules/
+
+frontend/dist/
+backend/dist/
+apps/*/dist/
+packages/*/dist/
+
+frontend/.next/
+apps/*/.next/
+
+# ==========================
+# Secrets
+# ==========================
+*.env.local
+*.env.development.local
+*.env.production.local
+*.env.test.local
