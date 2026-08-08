@@ -1,18 +1,28 @@
-import { useQuery } from '@tanstack/react-query'
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
-import { dashboardApi } from '@/services/dashboard.api'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card'
-import { Skeleton } from '@/components/ui/Skeleton'
+import { useQuery } from "@tanstack/react-query";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { dashboardApi } from "@/services/dashboard.api";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "../../components/ui/Card";
+import { Skeleton } from "../../components/ui/Skeleton";
 
-const COLORS = ['var(--color-brand-600)', 'var(--color-brand-300)', 'rgb(var(--border-strong))']
+const COLORS = [
+  "var(--color-brand-600)",
+  "var(--color-brand-300)",
+  "rgb(var(--border-strong))",
+];
 
 export function ReviewConversionChart() {
   const { data, isLoading } = useQuery({
-    queryKey: ['dashboard', 'review-conversion'],
+    queryKey: ["dashboard", "review-conversion"],
     queryFn: dashboardApi.getReviewConversion,
-  })
+  });
 
-  const total = data?.reduce((s, d) => s + d.value, 0) || 0
+  const total = data?.reduce((s, d) => s + d.value, 0) || 0;
 
   return (
     <Card>
@@ -27,7 +37,14 @@ export function ReviewConversionChart() {
           <div className="flex items-center gap-4">
             <ResponsiveContainer width="55%" height={200}>
               <PieChart>
-                <Pie data={data} dataKey="value" nameKey="name" innerRadius={52} outerRadius={78} paddingAngle={2}>
+                <Pie
+                  data={data}
+                  dataKey="value"
+                  nameKey="name"
+                  innerRadius={52}
+                  outerRadius={78}
+                  paddingAngle={2}
+                >
                   {data.map((_, i) => (
                     <Cell key={i} fill={COLORS[i % COLORS.length]} />
                   ))}
@@ -35,8 +52,8 @@ export function ReviewConversionChart() {
                 <Tooltip
                   contentStyle={{
                     borderRadius: 10,
-                    border: '1px solid rgb(var(--border))',
-                    background: 'rgb(var(--card))',
+                    border: "1px solid rgb(var(--border))",
+                    background: "rgb(var(--card))",
                     fontSize: 12,
                   }}
                 />
@@ -44,9 +61,15 @@ export function ReviewConversionChart() {
             </ResponsiveContainer>
             <div className="flex-1 space-y-2.5">
               {data.map((d, i) => (
-                <div key={d.name} className="flex items-center justify-between text-xs">
+                <div
+                  key={d.name}
+                  className="flex items-center justify-between text-xs"
+                >
                   <span className="flex items-center gap-2 text-[rgb(var(--muted-fg))]">
-                    <span className="h-2 w-2 rounded-full" style={{ background: COLORS[i % COLORS.length] }} />
+                    <span
+                      className="h-2 w-2 rounded-full"
+                      style={{ background: COLORS[i % COLORS.length] }}
+                    />
                     {d.name}
                   </span>
                   <span className="font-medium text-[rgb(var(--fg))]">
@@ -59,5 +82,5 @@ export function ReviewConversionChart() {
         )}
       </CardContent>
     </Card>
-  )
+  );
 }

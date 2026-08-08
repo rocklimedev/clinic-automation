@@ -7,8 +7,12 @@ export function EmptyState({ icon: Icon, title, description, action }) {
         </div>
       )}
       <p className="text-[15px] font-semibold text-[rgb(var(--fg))]">{title}</p>
-      {description && <p className="mt-1 max-w-sm text-sm text-[rgb(var(--muted-fg))]">{description}</p>}
+      {description && (
+        <p className="mt-1 max-w-sm text-sm text-[rgb(var(--muted-fg))]">
+          {description}
+        </p>
+      )}
       {action && <div className="mt-4">{action}</div>}
     </div>
-  )
+  );
 }

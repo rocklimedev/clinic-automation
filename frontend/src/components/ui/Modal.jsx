@@ -1,27 +1,35 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { X } from 'lucide-react'
-import { useEffect } from 'react'
-import { cn } from '@/lib/utils'
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
+import { useEffect } from "react";
+import { cn } from "@/lib/utils";
 
-export function Modal({ open, onClose, title, description, children, size = 'md', footer }) {
+export function Modal({
+  open,
+  onClose,
+  title,
+  description,
+  children,
+  size = "md",
+  footer,
+}) {
   useEffect(() => {
-    if (!open) return
-    const onKey = (e) => e.key === 'Escape' && onClose?.()
-    document.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
+    if (!open) return;
+    const onKey = (e) => e.key === "Escape" && onClose?.();
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
-    }
-  }, [open, onClose])
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open, onClose]);
 
   const widths = {
-    sm: 'max-w-md',
-    md: 'max-w-lg',
-    lg: 'max-w-2xl',
-    xl: 'max-w-4xl',
-    full: 'max-w-6xl',
-  }
+    sm: "max-w-md",
+    md: "max-w-lg",
+    lg: "max-w-2xl",
+    xl: "max-w-4xl",
+    full: "max-w-6xl",
+  };
 
   return (
     <AnimatePresence>
@@ -41,8 +49,8 @@ export function Modal({ open, onClose, title, description, children, size = 'md'
             exit={{ opacity: 0, y: 8, scale: 0.98 }}
             transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
             className={cn(
-              'relative z-10 my-8 w-full rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] shadow-soft-lg',
-              widths[size]
+              "relative z-10 my-8 w-full rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] shadow-soft-lg",
+              widths[size],
             )}
             role="dialog"
             aria-modal="true"
@@ -50,8 +58,16 @@ export function Modal({ open, onClose, title, description, children, size = 'md'
             {(title || description) && (
               <div className="flex items-start justify-between border-b border-[rgb(var(--border))] px-6 py-4">
                 <div>
-                  {title && <h2 className="text-base font-semibold tracking-tight">{title}</h2>}
-                  {description && <p className="mt-1 text-sm text-[rgb(var(--muted-fg))]">{description}</p>}
+                  {title && (
+                    <h2 className="text-base font-semibold tracking-tight">
+                      {title}
+                    </h2>
+                  )}
+                  {description && (
+                    <p className="mt-1 text-sm text-[rgb(var(--muted-fg))]">
+                      {description}
+                    </p>
+                  )}
                 </div>
                 <button
                   onClick={onClose}
@@ -61,7 +77,9 @@ export function Modal({ open, onClose, title, description, children, size = 'md'
                 </button>
               </div>
             )}
-            <div className="max-h-[70vh] overflow-y-auto px-6 py-5">{children}</div>
+            <div className="max-h-[70vh] overflow-y-auto px-6 py-5">
+              {children}
+            </div>
             {footer && (
               <div className="flex items-center justify-end gap-2 border-t border-[rgb(var(--border))] px-6 py-4">
                 {footer}
@@ -71,5 +89,5 @@ export function Modal({ open, onClose, title, description, children, size = 'md'
         </div>
       )}
     </AnimatePresence>
-  )
+  );
 }

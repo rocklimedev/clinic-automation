@@ -1,7 +1,7 @@
-import { PageHeader } from '@/components/common/PageHeader'
-import { Button } from '@/components/ui/Button'
-import { Plus } from 'lucide-react'
-import { TemplatesGrid } from '@/features/templates/TemplatesGrid'
+import { PageHeader } from "../components/common/PageHeader";
+import { Button } from "../components/ui/Button";
+import { Plus } from "lucide-react";
+import { TemplatesGrid } from "../features/templates/TemplatesGrid";
 
 export default function TemplatesPage() {
   return (
@@ -18,5 +18,5 @@ export default function TemplatesPage() {
       />
       <TemplatesGrid />
     </div>
-  )
+  );
 }

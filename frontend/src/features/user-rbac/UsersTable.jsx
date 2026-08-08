@@ -11,9 +11,9 @@ import {
   Shield,
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { Badge } from "../../components/ui/badge";
 
 import {
   Table,
@@ -22,11 +22,11 @@ import {
   TableHead,
   TableRow,
   TableCell,
-} from "@/components/ui/table";
+} from "../../components/ui/table";
 
-import { DropdownMenu, DropdownItem } from "@/components/ui/DropdownMenu";
+import { DropdownMenu, DropdownItem } from "../../components/ui/DropdownMenu";
 
-import { Avatar, AvatarFallback } from "@/components/ui/Avatar";
+import { Avatar, AvatarFallback } from "../../components/ui/Avatar";
 
 import AddUserModal from "./AddUserModal";
 

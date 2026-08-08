@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { User, Mail, Phone, Lock, Shield, Upload } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
 
 export default function AddUserModal({ open, onClose }) {
   const [form, setForm] = useState({

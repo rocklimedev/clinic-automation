@@ -9,8 +9,8 @@ import {
 } from "lucide-react";
 
 import RoleModal from "./RoleModal";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "../../components/ui/button";
+import { Badge } from "../../components/ui/badge";
 import { useState } from "react";
 
 import {
@@ -20,7 +20,7 @@ import {
   TableHead,
   TableRow,
   TableCell,
-} from "@/components/ui/table";
+} from "../../components/ui/table";
 
 import {
   Card,
@@ -28,7 +28,7 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-} from "@/components/ui/card";
+} from "../../components/ui/card";
 
 import { DropdownMenu, DropdownItem } from "../../components/ui/DropdownMenu";
 

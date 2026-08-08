@@ -6,10 +6,10 @@ import {
   useResendWhatsappMutation,
 } from "@/services/patients.api";
 
-import { DataTable } from "@/components/common/DataTable";
+import { DataTable } from "../../components/common/DataTable";
 import { buildColumns } from "./columns";
 import { useDebounce } from "@/hooks/useDebounce";
-import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
+import { ConfirmDialog } from "../../components/ui/ConfirmDialog";
 
 export function PatientsTable({
   search,

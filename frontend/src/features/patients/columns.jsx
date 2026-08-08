@@ -1,10 +1,10 @@
 import { format } from "date-fns";
 import { Star, Eye, Send, Trash2 } from "lucide-react";
 
-import { Checkbox } from "@/components/ui/Checkbox";
-import { Badge } from "@/components/ui/Badge";
-import { StatusBadge } from "@/components/common/StatusBadge";
-import { DropdownMenu, DropdownItem } from "@/components/ui/DropdownMenu";
+import { Checkbox } from "../../components/ui/Checkbox";
+import { Badge } from "../../components/ui/Badge";
+import { StatusBadge } from "../../components/common/StatusBadge";
+import { DropdownMenu, DropdownItem } from "../../components/ui/DropdownMenu";
 
 import { formatPhone } from "@/lib/utils";
 

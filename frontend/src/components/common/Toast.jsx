@@ -1,13 +1,13 @@
-import { useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { CheckCircle2 } from 'lucide-react'
+import { useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
 
 export function Toast({ message, onDone, duration = 2600 }) {
   useEffect(() => {
-    if (!message) return
-    const t = setTimeout(() => onDone?.(), duration)
-    return () => clearTimeout(t)
-  }, [message, duration, onDone])
+    if (!message) return;
+    const t = setTimeout(() => onDone?.(), duration);
+    return () => clearTimeout(t);
+  }, [message, duration, onDone]);
 
   return (
     <div className="pointer-events-none fixed bottom-5 left-1/2 z-[100] -translate-x-1/2">
@@ -25,5 +25,5 @@ export function Toast({ message, onDone, duration = 2600 }) {
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }

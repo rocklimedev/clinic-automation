@@ -1,11 +1,11 @@
-import { PageHeader } from '@/components/common/PageHeader'
-import { Button } from '@/components/ui/Button'
-import { StatsGrid } from '@/features/dashboard/StatsGrid'
-import { FeedbackTrendChart } from '@/features/dashboard/FeedbackTrendChart'
-import { MessagesSentChart } from '@/features/dashboard/MessagesSentChart'
-import { ReviewConversionChart } from '@/features/dashboard/ReviewConversionChart'
-import { RecentActivity } from '@/features/dashboard/RecentActivity'
-import { Download, Plus } from 'lucide-react'
+import { PageHeader } from "../components/common/PageHeader";
+import { Button } from "../components/ui/Button";
+import { StatsGrid } from "../features/dashboard/StatsGrid";
+import { FeedbackTrendChart } from "../features/dashboard/FeedbackTrendChart";
+import { MessagesSentChart } from "../features/dashboard/MessagesSentChart";
+import { ReviewConversionChart } from "../features/dashboard/ReviewConversionChart";
+import { RecentActivity } from "../features/dashboard/RecentActivity";
+import { Download, Plus } from "lucide-react";
 
 export default function DashboardPage() {
   return (
@@ -43,5 +43,5 @@ export default function DashboardPage() {
         <RecentActivity />
       </div>
     </div>
-  )
+  );
 }

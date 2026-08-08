@@ -1,7 +1,7 @@
-import { Plus, Upload, Download, Trash2 } from 'lucide-react'
-import { SearchInput } from '@/components/common/SearchInput'
-import { Select } from '@/components/ui/Select'
-import { Button } from '@/components/ui/Button'
+import { Plus, Upload, Download, Trash2 } from "lucide-react";
+import { SearchInput } from "../../components/common/SearchInput";
+import { Select } from "../../components/ui/Select";
+import { Button } from "../../components/ui/Button";
 
 export function PatientsToolbar({
   search,
@@ -20,18 +20,28 @@ export function PatientsToolbar({
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
       <div className="flex flex-1 flex-col gap-2 sm:flex-row sm:items-center">
         <div className="sm:w-72">
-          <SearchInput value={search} onChange={onSearchChange} placeholder="Search by name, mobile, doctor…" />
+          <SearchInput
+            value={search}
+            onChange={onSearchChange}
+            placeholder="Search by name, mobile, doctor…"
+          />
         </div>
         <div className="flex gap-2">
           <div className="w-36">
-            <Select value={status} onChange={(e) => onStatusChange(e.target.value)}>
+            <Select
+              value={status}
+              onChange={(e) => onStatusChange(e.target.value)}
+            >
               <option value="all">All statuses</option>
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
             </Select>
           </div>
           <div className="w-36">
-            <Select value={visitType} onChange={(e) => onVisitTypeChange(e.target.value)}>
+            <Select
+              value={visitType}
+              onChange={(e) => onVisitTypeChange(e.target.value)}
+            >
               <option value="all">All visit types</option>
               <option value="New">New</option>
               <option value="Follow-up">Follow-up</option>
@@ -61,5 +71,5 @@ export function PatientsToolbar({
         </Button>
       </div>
     </div>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import { Users, UserCheck, Shield, Stethoscope, Plus } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 import {
   Tabs,
   TabsContent,

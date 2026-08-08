@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&family=Inter+Tight:wght@500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&family=Inter+Tight:wght@500;600;700&display=swap");
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -26,9 +26,12 @@
   --color-surface: #ffffff;
   --color-surface-raised: #ffffff;
 
-  --shadow-soft: 0 1px 2px 0 rgb(20 20 20 / 0.04), 0 1px 3px 0 rgb(20 20 20 / 0.04);
-  --shadow-soft-md: 0 2px 8px -2px rgb(20 20 20 / 0.06), 0 4px 16px -4px rgb(20 20 20 / 0.06);
-  --shadow-soft-lg: 0 8px 24px -6px rgb(20 20 20 / 0.10), 0 2px 8px -2px rgb(20 20 20 / 0.06);
+  --shadow-soft:
+    0 1px 2px 0 rgb(20 20 20 / 0.04), 0 1px 3px 0 rgb(20 20 20 / 0.04);
+  --shadow-soft-md:
+    0 2px 8px -2px rgb(20 20 20 / 0.06), 0 4px 16px -4px rgb(20 20 20 / 0.06);
+  --shadow-soft-lg:
+    0 8px 24px -6px rgb(20 20 20 / 0.1), 0 2px 8px -2px rgb(20 20 20 / 0.06);
 
   --animate-in: enter 0.15s ease-out;
   --animate-out: exit 0.15s ease-in;
@@ -90,8 +93,13 @@
     border-radius: 4px;
   }
 
-  ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
   ::-webkit-scrollbar-thumb {
     background-color: rgb(var(--border-strong));
     border-radius: 8px;
@@ -99,7 +107,9 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.001ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
@@ -108,18 +118,33 @@
 }
 
 @layer utilities {
-  .text-balance { text-wrap: balance; }
+  .text-balance {
+    text-wrap: balance;
+  }
   .bg-noise {
-    background-image: radial-gradient(rgb(var(--fg) / 0.035) 0.5px, transparent 0.5px);
+    background-image: radial-gradient(
+      rgb(var(--fg) / 0.035) 0.5px,
+      transparent 0.5px
+    );
     background-size: 12px 12px;
   }
 }
 
 @keyframes enter {
-  from { opacity: 0; transform: translateY(2px) scale(0.99); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(2px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 @keyframes exit {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

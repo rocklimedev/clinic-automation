@@ -1,10 +1,13 @@
-import { useQuery } from '@tanstack/react-query'
-import { templatesApi } from '@/services/templates.api'
-import { TemplateCard } from './TemplateCard'
-import { Skeleton } from '@/components/ui/Skeleton'
+import { useQuery } from "@tanstack/react-query";
+import { templatesApi } from "@/services/templates.api";
+import { TemplateCard } from "./TemplateCard";
+import { Skeleton } from "../../components/ui/Skeleton";
 
 export function TemplatesGrid() {
-  const { data: templates, isLoading } = useQuery({ queryKey: ['templates'], queryFn: templatesApi.list })
+  const { data: templates, isLoading } = useQuery({
+    queryKey: ["templates"],
+    queryFn: templatesApi.list,
+  });
 
   if (isLoading) {
     return (
@@ -13,7 +16,7 @@ export function TemplatesGrid() {
           <Skeleton key={i} className="h-80 w-full" />
         ))}
       </div>
-    )
+    );
   }
 
   return (
@@ -22,5 +25,5 @@ export function TemplatesGrid() {
         <TemplateCard key={t.id} template={t} />
       ))}
     </div>
-  )
+  );
 }

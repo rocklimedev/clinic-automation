@@ -1,15 +1,15 @@
-import { AlertTriangle } from 'lucide-react'
-import { Modal } from './Modal'
-import { Button } from './Button'
+import { AlertTriangle } from "lucide-react";
+import { Modal } from "./Modal";
+import { Button } from "./Button";
 
 export function ConfirmDialog({
   open,
   onClose,
   onConfirm,
-  title = 'Are you sure?',
+  title = "Are you sure?",
   description,
-  confirmLabel = 'Confirm',
-  variant = 'destructive',
+  confirmLabel = "Confirm",
+  variant = "destructive",
   loading = false,
 }) {
   return (
@@ -20,7 +20,11 @@ export function ConfirmDialog({
         </div>
         <div>
           <h3 className="text-[15px] font-semibold">{title}</h3>
-          {description && <p className="mt-1 text-sm text-[rgb(var(--muted-fg))]">{description}</p>}
+          {description && (
+            <p className="mt-1 text-sm text-[rgb(var(--muted-fg))]">
+              {description}
+            </p>
+          )}
         </div>
       </div>
       <div className="mt-6 flex justify-end gap-2">
@@ -28,9 +32,9 @@ export function ConfirmDialog({
           Cancel
         </Button>
         <Button variant={variant} onClick={onConfirm} disabled={loading}>
-          {loading ? 'Please wait…' : confirmLabel}
+          {loading ? "Please wait…" : confirmLabel}
         </Button>
       </div>
     </Modal>
-  )
+  );
 }
