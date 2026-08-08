@@ -2,7 +2,7 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Install Chromium and its runtime dependencies
+# Install Chromium dependencies
 RUN apk add --no-cache \
     chromium \
     nss \
@@ -12,11 +12,11 @@ RUN apk add --no-cache \
     ttf-freefont
 
 ENV PUPPETEER_SKIP_DOWNLOAD=true
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
 COPY package*.json ./
 
-RUN npm ci
+RUN npm install
 
 COPY . .
 
