@@ -4,7 +4,7 @@ import { Avatar } from "../../components/ui/Avatar";
 import { StatusBadge } from "../../components/common/StatusBadge";
 import { Badge } from "../../components/ui/Badge";
 import { Timeline } from "../../components/common/Timeline";
-import { formatPhone } from "@/lib/utils";
+import { formatPhone } from "../../lib/utils";
 import {
   CalendarCheck,
   Clock,

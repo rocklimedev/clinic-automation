@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { dashboardApi } from "@/services/dashboard.api";
+import { dashboardApi } from "../../services/dashboard.api";
 import {
   Card,
   CardHeader,

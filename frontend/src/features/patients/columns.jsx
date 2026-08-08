@@ -6,7 +6,7 @@ import { Badge } from "../../components/ui/Badge";
 import { StatusBadge } from "../../components/common/StatusBadge";
 import { DropdownMenu, DropdownItem } from "../../components/ui/DropdownMenu";
 
-import { formatPhone } from "@/lib/utils";
+import { formatPhone } from "../../lib/utils";
 
 export function buildColumns({
   selectedIds,

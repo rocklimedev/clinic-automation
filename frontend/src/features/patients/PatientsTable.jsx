@@ -4,7 +4,7 @@ import {
   useGetPatientsQuery,
   useDeletePatientMutation,
   useResendWhatsappMutation,
-} from "@/services/patients.api";
+} from "../../services/patients.api";
 
 import { DataTable } from "../../components/common/DataTable";
 import { buildColumns } from "./columns";

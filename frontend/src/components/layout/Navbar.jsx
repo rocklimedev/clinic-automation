@@ -3,7 +3,7 @@ import { SearchInput } from "../../components/common/SearchInput";
 import { Avatar } from "../../components/ui/Avatar";
 import { DropdownMenu, DropdownItem } from "../../components/ui/DropdownMenu";
 import { useState } from "react";
-import { useDarkMode } from "@/hooks/useDarkMode";
+import { useDarkMode } from "../../hooks/useDarkMode";
 import { useAuth } from "../../hooks/AuthContext";
 export function Navbar({
   onOpenMobile,

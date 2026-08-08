@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
-import { dashboardApi } from "@/services/dashboard.api";
+import { dashboardApi } from "../../services/dashboard.api";
 import {
   Card,
   CardHeader,

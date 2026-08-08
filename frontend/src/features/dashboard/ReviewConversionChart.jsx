@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
-import { dashboardApi } from "@/services/dashboard.api";
+import { dashboardApi } from "../../services/dashboard.api";
 import {
   Card,
   CardHeader,

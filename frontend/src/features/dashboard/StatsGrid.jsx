@@ -9,9 +9,9 @@ import {
   Clock,
   AlertOctagon,
 } from "lucide-react";
-import { dashboardApi } from "@/services/dashboard.api";
+import { dashboardApi } from "../../services/dashboard.api";
 import { StatsCard } from "../../components/common/StatsCard";
-import { formatNumber } from "@/lib/utils";
+import { formatNumber } from "../../lib/utils";
 
 export function StatsGrid() {
   const { data: stats, isLoading } = useQuery({

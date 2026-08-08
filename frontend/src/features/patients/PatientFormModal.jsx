@@ -7,7 +7,7 @@ import { Button } from "../../components/ui/Button";
 import { Input } from "../../components/ui/Input";
 import { Label } from "../../components/ui/Label";
 import { Select } from "../../components/ui/Select";
-import { patientsApi } from "@/services/patients.api";
+import { patientsApi } from "../../services/patients.api";
 import { useEffect } from "react";
 
 const schema = z.object({

@@ -11,9 +11,9 @@ import {
   Shield,
 } from "lucide-react";
 
-import { Button } from "../../components/ui/button";
-import { Input } from "../../components/ui/input";
-import { Badge } from "../../components/ui/badge";
+import { Button } from "../../components/ui/Button";
+import { Input } from "../../components/ui/Input";
+import { Badge } from "../../components/ui/Badge";
 
 import {
   Table,
@@ -30,7 +30,10 @@ import { Avatar, AvatarFallback } from "../../components/ui/Avatar";
 
 import AddUserModal from "./AddUserModal";
 
-import { useGetUsersQuery, useDeleteUserMutation } from "@/services/users.api";
+import {
+  useGetUsersQuery,
+  useDeleteUserMutation,
+} from "../../services/users.api";
 
 export default function UsersTable() {
   const [search, setSearch] = useState("");

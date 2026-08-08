@@ -11,7 +11,7 @@ import { Modal } from "../../components/ui/Modal";
 import { Button } from "../../components/ui/Button";
 import { Select } from "../../components/ui/Select";
 import { Badge } from "../../components/ui/Badge";
-import { patientsApi } from "@/services/patients.api";
+import { patientsApi } from "../../services/patients.api";
 
 const TARGET_FIELDS = [
   { key: "name", label: "Full Name" },

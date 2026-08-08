@@ -10,7 +10,7 @@ import {
   X,
   User,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 const NAV_ITEMS = [
   { to: "/", label: "Dashboard", icon: LayoutGrid, end: true },

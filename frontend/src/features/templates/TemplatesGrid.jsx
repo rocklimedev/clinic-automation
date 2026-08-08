@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { templatesApi } from "@/services/templates.api";
+import { templatesApi } from "../../services/templates.api";
 import { TemplateCard } from "./TemplateCard";
 import { Skeleton } from "../../components/ui/Skeleton";
 
